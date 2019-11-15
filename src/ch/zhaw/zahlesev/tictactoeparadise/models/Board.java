@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Board {
-    private static final char EMPTY_FIELD = '\u0000';
+    public static final char EMPTY_FIELD = '\u0000';
     
     private final Coordinates2D boardDimensions;
     private List<Character> validMarks = new ArrayList<>();
@@ -15,6 +15,10 @@ public class Board {
         this.validMarks.addAll(validMarks);
         
         initializeBoard();
+    }
+    
+    public Board(int width, int height, List<Character> validMarks) {
+        this(new Coordinates2D(width, height), validMarks);
     }
     
     private void initializeBoard() {
@@ -39,8 +43,20 @@ public class Board {
         return boardDimensions.x;
     }
     
+    public void setField(Coordinates2D coordinates, char mark) {
+        fields.get(coordinates.x).set(coordinates.y, mark);
+    }
+    
+    public void setField(int col, int row, char mark) {
+        fields.get(col).set(row, mark);
+    }
+    
     public char getField(Coordinates2D coordinates) {
         return fields.get(coordinates.x).get(coordinates.y);
+    }
+    
+    public char getField(int col, int row) {
+        return fields.get(col).get(row);
     }
     
     public List<Character> getValidMarks() {
