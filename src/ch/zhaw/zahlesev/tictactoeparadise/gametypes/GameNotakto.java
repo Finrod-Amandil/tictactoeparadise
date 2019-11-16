@@ -6,8 +6,7 @@ import ch.zhaw.zahlesev.tictactoeparadise.models.GameState;
 import ch.zhaw.zahlesev.tictactoeparadise.models.Turn;
 import ch.zhaw.zahlesev.tictactoeparadise.models.TurnResult;
 
-public class GameClassic {
-
+public class GameNotakto {
     public GameInfo getGameInfo() {
         
     }
